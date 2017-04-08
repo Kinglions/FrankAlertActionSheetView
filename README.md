@@ -134,3 +134,5 @@ CustomViewPosition_Bottom
 
 -(void)show;
 
+
+https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/功能Demo.png
