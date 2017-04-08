@@ -135,9 +135,16 @@ CustomViewPosition_Bottom
 -(void)show;
 
 Demo运行截图如下：
-![Demo截图.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/Demo.png)
-![居顶自定义View.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/TopCustomView.png)
-![居中自定义View.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/CenterCustomView.png)
-![系统Alert.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/systemAlert.png)
-![系统ActionSheet.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/systemAction.png)
-![微信ActionSheet.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/wxAction.png)
+![Demo截图.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/Demo.png =150)
+
+![居顶自定义View.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/TopCustomView.png =150)
+
+![居中自定义View.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/CenterCustomView.png =150)
+
+![系统Alert.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/systemAlert.png =150)
+
+![系统ActionSheet.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/systemAction.png =150)
+
+![微信ActionSheet.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/wxAction.png =150)
+
+该工具封装的主要目的就是为了使用方便，如果猿友觉得是有用的话，希望来个 star，如果发现有bug崛起了，还望 issues，以便及时解决
