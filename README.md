@@ -134,5 +134,10 @@ CustomViewPosition_Bottom
 
 -(void)show;
 
-
-https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/功能Demo.png
+Demo运行截图如下：
+![Demo截图.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/Demo.png)
+![居顶自定义View.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/TopCustomView.png)
+![居中自定义View.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/CenterCustomView.png)
+![系统Alert.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/systemAlert.png)
+![系统ActionSheet.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/systemAction.png)
+![微信ActionSheet.png](https://github.com/Kinglions/FrankAlertActionSheetView/blob/master/image/wxAction.png)
