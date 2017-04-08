@@ -78,6 +78,7 @@ CustomViewPosition_Bottom
 @param otherButtonTitles 其它按钮 标签 buttonIndex = 1，2，3...
 @return 实例对象
 */
+
 - (instancetype)initSystemAlertActionWithStyle:(UIAlertControllerStyle)style title:(NSString *)title message:(NSString *)message completeBlock:(ClickedButtonBlock)completedClickBlock cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 /**
@@ -89,6 +90,7 @@ CustomViewPosition_Bottom
 
 @return 实例对象
 */
+
 - (instancetype)initCustomView:(UIView *)alertView animateStyle:(ViewAlertAnimateStyle)animateStyle position:(CustomViewPosition)position;
 
 
@@ -101,11 +103,13 @@ CustomViewPosition_Bottom
 @param otherButtonTitles 其他操作按钮 标签 buttonIndex = 1，2，3...
 @return 实例对象
 */
+
 - (instancetype)initCustomActionSheetWithTitle:(NSString *)title message:(NSString *)message completeBlock:(ClickedButtonBlock)completedClickBlock cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 
 /**
 展示方法，提示框的展示都需要调用该方法
 */
+
 - (void)show;
 
