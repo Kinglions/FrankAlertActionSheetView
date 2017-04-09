@@ -109,7 +109,7 @@
                                 <segments>
                                     <segment title="居顶"/>
                                     <segment title="居中"/>
-                                    <segment title="局底"/>
+                                    <segment title="居底"/>
                                 </segments>
                                 <color key="tintColor" red="0.14333918280531932" green="0.69611378205128205" blue="0.0011383716236040933" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
