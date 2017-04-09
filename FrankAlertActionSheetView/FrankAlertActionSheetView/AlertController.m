@@ -1,15 +1,15 @@
 //
-//  FrankAlertController.m
+//  AlertController.m
 //  YnybzNursingBiz
 //
 //  Created by Frank on 16/9/19.
 //  Copyright © 2016年 Frank.HAJK. All rights reserved.
 //
 
-#import "FrankAlertController.h"
+#import "AlertController.h"
 #import <objc/runtime.h>
 
-@implementation FrankAlertAction
+@implementation AlertAction
 
 //按钮标题的字体颜色
 -(void)setTextColor:(UIColor *)textColor
@@ -32,11 +32,11 @@
 
 @end
 
-@interface FrankAlertController ()
+@interface AlertController ()
 
 @end
 
-@implementation FrankAlertController
+@implementation AlertController
 
 -(void)viewDidLoad
 {
@@ -66,7 +66,7 @@
     
     //按钮统一颜色
     if (self.tintColor) {
-        for (FrankAlertAction *action in self.actions) {
+        for (AlertAction *action in self.actions) {
             if (!action.textColor) {
                 action.textColor = self.tintColor;
             }

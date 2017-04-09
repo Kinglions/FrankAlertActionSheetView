@@ -13,8 +13,8 @@
 		011E94821E97D46D00FE6CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011E94811E97D46D00FE6CE2 /* Assets.xcassets */; };
 		011E94851E97D46D00FE6CE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011E94831E97D46D00FE6CE2 /* LaunchScreen.storyboard */; };
 		011E94921E97D4F500FE6CE2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011E94911E97D4F500FE6CE2 /* ViewController.m */; };
-		011E94981E97D5D500FE6CE2 /* FrankAlertActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 011E94951E97D5D500FE6CE2 /* FrankAlertActionSheetView.m */; };
-		011E94991E97D5D500FE6CE2 /* FrankAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011E94971E97D5D500FE6CE2 /* FrankAlertController.m */; };
+		0168493A1E9A88E900815F48 /* AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016849371E9A88E900815F48 /* AlertController.m */; };
+		0168493B1E9A88E900815F48 /* FrankAlertActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 016849391E9A88E900815F48 /* FrankAlertActionSheetView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		011E94861E97D46D00FE6CE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		011E94901E97D4F500FE6CE2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		011E94911E97D4F500FE6CE2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		011E94941E97D5D500FE6CE2 /* FrankAlertActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrankAlertActionSheetView.h; sourceTree = "<group>"; };
-		011E94951E97D5D500FE6CE2 /* FrankAlertActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrankAlertActionSheetView.m; sourceTree = "<group>"; };
-		011E94961E97D5D500FE6CE2 /* FrankAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrankAlertController.h; sourceTree = "<group>"; };
-		011E94971E97D5D500FE6CE2 /* FrankAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrankAlertController.m; sourceTree = "<group>"; };
+		016849361E9A88E900815F48 /* AlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertController.h; sourceTree = "<group>"; };
+		016849371E9A88E900815F48 /* AlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertController.m; sourceTree = "<group>"; };
+		016849381E9A88E900815F48 /* FrankAlertActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrankAlertActionSheetView.h; sourceTree = "<group>"; };
+		016849391E9A88E900815F48 /* FrankAlertActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrankAlertActionSheetView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 		011E94741E97D46D00FE6CE2 /* FrankAlertActionSheetView */ = {
 			isa = PBXGroup;
 			children = (
-				011E94931E97D5D500FE6CE2 /* FrankAlertActionSheetView */,
+				016849351E9A88E900815F48 /* FrankAlertActionSheetView */,
 				011E948F1E97D4F500FE6CE2 /* Demo */,
 				011E94781E97D46D00FE6CE2 /* AppDelegate.h */,
 				011E94791E97D46D00FE6CE2 /* AppDelegate.m */,
@@ -94,13 +94,13 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
-		011E94931E97D5D500FE6CE2 /* FrankAlertActionSheetView */ = {
+		016849351E9A88E900815F48 /* FrankAlertActionSheetView */ = {
 			isa = PBXGroup;
 			children = (
-				011E94941E97D5D500FE6CE2 /* FrankAlertActionSheetView.h */,
-				011E94951E97D5D500FE6CE2 /* FrankAlertActionSheetView.m */,
-				011E94961E97D5D500FE6CE2 /* FrankAlertController.h */,
-				011E94971E97D5D500FE6CE2 /* FrankAlertController.m */,
+				016849361E9A88E900815F48 /* AlertController.h */,
+				016849371E9A88E900815F48 /* AlertController.m */,
+				016849381E9A88E900815F48 /* FrankAlertActionSheetView.h */,
+				016849391E9A88E900815F48 /* FrankAlertActionSheetView.m */,
 			);
 			path = FrankAlertActionSheetView;
 			sourceTree = "<group>";
@@ -176,11 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0168493A1E9A88E900815F48 /* AlertController.m in Sources */,
 				011E947A1E97D46D00FE6CE2 /* AppDelegate.m in Sources */,
+				0168493B1E9A88E900815F48 /* FrankAlertActionSheetView.m in Sources */,
 				011E94921E97D4F500FE6CE2 /* ViewController.m in Sources */,
-				011E94981E97D5D500FE6CE2 /* FrankAlertActionSheetView.m in Sources */,
 				011E94771E97D46D00FE6CE2 /* main.m in Sources */,
-				011E94991E97D5D500FE6CE2 /* FrankAlertController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +337,7 @@
 				011E948B1E97D46D00FE6CE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

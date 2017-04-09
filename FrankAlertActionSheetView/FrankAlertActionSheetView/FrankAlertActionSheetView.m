@@ -8,7 +8,7 @@
 
 #import "FrankAlertActionSheetView.h"
 
-#import "FrankAlertController.h"
+#import "AlertController.h"
 #import <objc/runtime.h>
 
 #define Screen_Width [UIScreen mainScreen].bounds.size.width
@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
 @interface FrankAlertActionSheetView ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate>
 
 /* ----------------使用系统提示框设置属性------------------- */
-@property(nonatomic,strong)FrankAlertController * alert;
+@property(nonatomic,strong)AlertController * alert;
 @property(nonatomic,strong)UIViewController * viewController;
 /* ----------------------------------- */
 
@@ -155,7 +155,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         
         self.viewController = viewController;
         
-        self.alert = [FrankAlertController alertControllerWithTitle:title message:message preferredStyle:style];
+        self.alert = [AlertController alertControllerWithTitle:title message:message preferredStyle:style];
         
         // 定义一个指向可选参数列表的指针
         va_list args;
@@ -164,7 +164,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         if(otherButtonTitles)
         {
             NSInteger actionindex = 1;
-            FrankAlertAction * action = [FrankAlertAction actionWithTitle:otherButtonTitles style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            AlertAction * action = [AlertAction actionWithTitle:otherButtonTitles style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
                 if(completedClickBlock){
                     completedClickBlock(otherButtonTitles,actionindex);
@@ -179,7 +179,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
             {
                 actionindex += 1;
                 
-                FrankAlertAction * action = [FrankAlertAction actionWithTitle:nextArg style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                AlertAction * action = [AlertAction actionWithTitle:nextArg style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
                     if(completedClickBlock){
                         completedClickBlock(nextArg,actionindex);
@@ -195,7 +195,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         
         if (cancelButtonTitle)
         {
-            FrankAlertAction * cancelAction = [FrankAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            AlertAction * cancelAction = [AlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
                 if(completedClickBlock){
                     completedClickBlock(cancelButtonTitle,-1);
@@ -427,7 +427,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0  blue:246.0/255.0  alpha:1.0];
     
-    BOOL hidden = (indexPath.row == self.dataArray.count-1) ? NO:YES;
+    BOOL hidden = indexPath.row == self.dataArray.count-1 ? NO:YES;
     
     cell.infoLabel.textColor = self.buttonTitleColor?:[UIColor blackColor];
     
@@ -709,11 +709,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         {
             UIWindow *currentWindows = [[[UIApplication sharedApplication] delegate] window];
             
-            UIViewController * viewController = [currentWindows rootViewController];
-            
-            if([viewController isKindOfClass:[UINavigationController class]]){
-                viewController = ((UINavigationController *)viewController).topViewController;
-            }
+            UIViewController * viewController = [self getCurrentVC];
             /// 防止系统键盘弹出
             [viewController.view endEditing:YES];
             
@@ -734,6 +730,35 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
     }
     
 }
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
+}
 -(void)dealloc{
     
     if (self.alertTap) {
@@ -751,12 +776,6 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
 
 
 
-@interface ActionSheetCell ()
-
-@property(nonatomic,strong)UIView * sepV;
-
-@end
-
 @implementation ActionSheetCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -771,9 +790,9 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         self.infoLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.infoLabel];
         
-        self.sepV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)-1,Screen_Width , 1)];
-        self.sepV.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0  blue:246.0/255.0  alpha:1.0];
-        [self addSubview:self.sepV];
+        UIView * sepV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)-1,Screen_Width , 1)];
+        sepV.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0  blue:246.0/255.0  alpha:1.0];
+        [self addSubview:sepV];
         
         self.backgroundColor = [UIColor whiteColor];
         
@@ -796,7 +815,6 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         self.infoLabel.frame = CGRectMake(0, 0, Screen_Width, CGRectGetHeight(self.infoLabel.bounds));
     }else{
         self.infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, Screen_Width, 44)];
-        self.sepV.frame = CGRectMake(0, CGRectGetMaxY(self.topView.bounds) + CGRectGetMaxY(self.infoLabel.bounds)-1, Screen_Width, 1);
     }
 }
 

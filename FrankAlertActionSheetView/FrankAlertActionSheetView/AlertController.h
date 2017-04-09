@@ -1,5 +1,5 @@
 //
-//  FrankAlertController.h
+//  AlertController.h
 //  YnybzNursingBiz
 //
 //  Created by Frank on 16/9/19.
@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FrankAlertAction : UIAlertAction
+@interface AlertAction : UIAlertAction
 
 @property (nonatomic,strong) UIColor *textColor; /**< 按钮title字体颜色 */
 
 @end
 
-@interface FrankAlertController : UIAlertController
+@interface AlertController : UIAlertController
 
 @property (nonatomic,strong) UIColor *tintColor; /**< 统一按钮样式 不写系统默认的蓝色 */
 @property (nonatomic,strong) UIColor *titleColor; /**< 标题的颜色 */
