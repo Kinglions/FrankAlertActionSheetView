@@ -427,7 +427,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0  blue:246.0/255.0  alpha:1.0];
     
-    BOOL hidden = indexPath.row == self.dataArray.count-1 ? NO:YES;
+    BOOL hidden = (indexPath.row == self.dataArray.count-1) ? NO:YES;
     
     cell.infoLabel.textColor = self.buttonTitleColor?:[UIColor blackColor];
     
@@ -751,6 +751,12 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
 
 
 
+@interface ActionSheetCell ()
+
+@property(nonatomic,strong)UIView * sepV;
+
+@end
+
 @implementation ActionSheetCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -765,9 +771,9 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         self.infoLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.infoLabel];
         
-        UIView * sepV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)-1,Screen_Width , 1)];
-        sepV.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0  blue:246.0/255.0  alpha:1.0];
-        [self addSubview:sepV];
+        self.sepV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)-1,Screen_Width , 1)];
+        self.sepV.backgroundColor = [UIColor colorWithRed:246.0/255.0 green:246.0/255.0  blue:246.0/255.0  alpha:1.0];
+        [self addSubview:self.sepV];
         
         self.backgroundColor = [UIColor whiteColor];
         
@@ -790,6 +796,7 @@ typedef NS_ENUM(NSInteger,AlertStyle) {
         self.infoLabel.frame = CGRectMake(0, 0, Screen_Width, CGRectGetHeight(self.infoLabel.bounds));
     }else{
         self.infoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, Screen_Width, 44)];
+        self.sepV.frame = CGRectMake(0, CGRectGetMaxY(self.topView.bounds) + CGRectGetMaxY(self.infoLabel.bounds)-1, Screen_Width, 1);
     }
 }
 
